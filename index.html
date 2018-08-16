@@ -18,9 +18,21 @@
   <body>
     <!-- Main content -->
     <div class="container">
-        <h1>People</h1>
-        <button onclick="getPeople()">Click me.</button>
-        <div id="show_result">(People here)</div>
+        <div id="menu">
+          <img src="http://redsox.uoa.auckland.ac.nz/ups/logo.svg" height="42" width="42">
+          <ul>
+            <li><a onclick="getHome()">Home</a></li>
+            <li><a onclick="getCourses()">Courses</a></li>
+            <li><a onclick="getPeople()">People</a></li>
+            <li><a onclick="getNews()">News</a></li>
+            <li><a onclick="getNotices()">Notices</a></li>
+            <li><a onclick="getComments()">Comments</a></li>
+          </ul>
+        </div>
+        <div id="show_result">
+          <h1>Welcome to the Department of Computer Science</h1>
+          <p>Welcome to New Zealand's leading computer science department. We pride ourselves on the excellence of our staff and our students.</p>
+        </div>
     </div>
 
     <!-- JavaScript -->
