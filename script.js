@@ -143,5 +143,34 @@ function getNotices() {
 }
 
 function getComments() {
+    const xhr = new XMLHttpRequest(); 
+    const uri = "http://redsox.uoa.auckland.ac.nz/ups/UniProxService.svc/htmlcomments"; 
+    xhr.open("GET", uri, true);
+    xhr.onload = () => {
+        const version_d = document.getElementById("show_result");
+        let htmlToInsert = '<form id="myForm"><textarea name="message" rows="4" cols="50" placeholder="Comment"></textarea><br/>' + 
+                        '<label for="commentName">Name:</label><input id="myName" name="name"><input type="submit" value="Submit"></form>';
+        version_d.innerHTML = htmlToInsert + xhr.responseText;
+        const form = document.getElementById("myForm");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            postComments(form);
+            getComments();
+        });
+    } 
+    xhr.send(null);
+}
+function postComments(form) {
+    const formEle = form.elements;
+    console.log(formEle.name.value, formEle.message.value);
+    const xhr = new XMLHttpRequest(); 
+    const uri = "http://redsox.uoa.auckland.ac.nz/ups/UniProxService.svc/comment?name=" + form.elements.name.value; 
+    xhr.open("POST", uri, true); 
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8"); 
+    xhr.onload = () => { 
+        ;
+    }
+    let objectToPost = form.elements.message.value;
+    xhr.send(JSON.stringify(objectToPost));
     
 }
