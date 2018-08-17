@@ -2,11 +2,18 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
 }
+h1, h2, h3, h4, p, a.timetable, div.timetable, form {
+    padding-left: 15px;
+}
+h2 {
+    margin-top: 0;
+}
 
 #navbar {
     color: aliceblue;
     background-color: #1f1f2e;
     padding: 5px;
+    text-align: center;
 }
 
 #icon {
@@ -16,12 +23,16 @@ body {
     height: 60px;
     width: 60px;
 }
-#navHeader {
+h1#navHeader {
     display: inline-block;
     margin: 5px;
     vertical-align: top;
+    padding-left: 5px;
+    margin-top: 15px;
+
 }
 #menuButton {
+    display: inline-block;
     vertical-align: top;
     margin: 5px;
     border-radius: 12px;
@@ -33,7 +44,7 @@ body {
     height: 60px;
     width: 60px;
     font-size: 30px;
-    float: right;
+    
     cursor: pointer;
 }
 #menuButton:hover {
@@ -59,12 +70,7 @@ li {
     cursor: pointer;
 }
 
-h1, h2, h3, h4, p, a.timetable, div.timetable, form {
-    padding-left: 15px;
-}
-h2 {
-    margin-top: 0;
-}
+
 
 a.timetable {
     text-decoration: underline;
