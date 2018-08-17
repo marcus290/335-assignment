@@ -20,7 +20,7 @@ function getCourses() {
             htmlToInsert += '<div class="courses"><h2>COMPSCI ' + courseNum + '</h2>' +
                             '<h3 id="' + courseNum + 'title"></h3>' +
                             '<p id="' + courseNum + 'des"></p>' +
-                            '<a class="timetable" onclick="getTimetable(' + courseNum + ')">Current course timetable</a>' +
+                            '<a class="timetable" onclick="getTimetable(\'' + courseNum + '\')">Current course timetable</a>' +
                             '<div class="timetable" id="' + courseNum + 'timetable"></div>' +'</div>'; 
         });
         version_d.innerHTML = htmlToInsert;
@@ -62,10 +62,10 @@ function getTimetable(catalogNumber) {
                                     ' Location: ' + timetableData[i].meetingPatterns[j].location +
                                     '<br/>';
                 }
-            if (htmlToInsert === '') {htmlToInsert = "None scheduled currently";}
-            console.log(htmlToInsert);
-            version_d.innerHTML = htmlToInsert;
             }
+            if (htmlToInsert === '') {htmlToInsert = "No classes scheduled currently";}
+            version_d.innerHTML = htmlToInsert;
+            
         }
         xhr.send(null);
     } else {
